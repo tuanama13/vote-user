@@ -7,6 +7,11 @@
             "label": "Quasar Dev",
             "type": "shell",
             "command": "quasar dev --host=192.168.1.12"
-        }
+        },
+         {
+           "label": "Quasar Build",
+           "type": "shell",
+           "command": "quasar build"
+         }
     ]
 }

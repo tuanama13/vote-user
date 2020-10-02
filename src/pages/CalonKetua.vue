@@ -29,12 +29,10 @@
 <script>
 import { Loading } from 'quasar'
 export default {
-  name: 'Konsultasi',
+  name: 'CalonKetua',
   data () {
     return {
-      dataKandidat: [],
-      expanded: false,
-      lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      dataKandidat: []
     }
   },
   mounted () {
@@ -52,7 +50,12 @@ export default {
       }
       const res = await this.$axios.patch('/hasil/vote', body)
       if (res.data.message === 'berhasil') {
-        return Loading.hide()
+        Loading.hide()
+        this.$q.notify({
+          type: 'positive',
+          message: 'Berhasil'
+        })
+        return this.$router.push('/')
       }
       Loading.hide()
       return this.$q.notify({

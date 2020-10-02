@@ -18,8 +18,8 @@ export default {
             // eslint-disable-next-line no-tabs
             data: [],
             fill: false,
-            borderColor: '#2554FF',
-            backgroundColor: '#2554FF',
+            // borderColor: '#2554FF',
+            backgroundColor: ['#2554FF', '#709fb0', '#f08a5d', '#b83b5e', '#6a2c70'],
             borderWidth: 1
           }
         ]
