@@ -8,12 +8,12 @@
           </div>
         </div>
         <div class="col-4">
-          <span if class="text-h6">Total Voters : {{total}}</span>
+          <span if class="text-h6">Total Voters : {{total_}}</span>
         </div>
       </div>
         <div class="row q-col-gutter-md justify-center">
          <div class="col-12">
-            <bar-chart :isLoad="load" ></bar-chart>
+            <bar-chart :total="total_" :isLoad="load" ></bar-chart>
          </div>
         </div>
     </q-page>
@@ -30,33 +30,30 @@ export default {
     return {
       tes: null,
       dataKandidat: [],
+      total_: 0,
       total: 0,
       load: true,
-      expanded: false,
-      lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      expanded: false
+    }
+  },
+  watch: {
+    total_ (value) {
+      return localStorage.total || 0
     }
   },
   async mounted () {
-    // this.renderChart(this.chartdata, this.options)
+    this.total = setInterval(function () {
+      this.total_ = parseInt(localStorage.total)
+    }.bind(this), 4000)
     await this.getKandidat()
   },
   methods: {
     async getKandidat () {
       const res = await this.$axios.get('/calon-ketua')
       this.dataKandidat = res.data.results
-      const resHasil = await this.$axios.get('/hasil')
-      this.total = resHasil.data.total
     },
     load_ (value) {
       this.load = value
-    },
-    async vote (idcalonketua) {
-      const body = {
-        idcalonketua: idcalonketua
-      }
-      const res = await this.$axios.patch('/hasil/vote', body)
-      //   this.dataKandidat = res.data.results
-      console.log(res.data.message)
     }
   }
 }

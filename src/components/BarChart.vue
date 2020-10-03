@@ -4,6 +4,7 @@ import { Bar } from 'vue-chartjs'
 export default {
   extends: Bar,
   props: {
+    total: { type: Number },
     isLoad: Boolean
   },
   data () {
@@ -51,13 +52,13 @@ export default {
   watch: {
     isLoad: function (value) {
       if (value) {
-        this.polling = setInterval(function () {
-          this.getHasil()
-        }.bind(this), 4000)
+        // this.polling = setInterval(function () {
+        //   this.getHasil()
+        // }.bind(this), 4000)
+        this.loadBar()
       } else {
         clearInterval(this.polling)
       }
-      // console.log(value)
     }
   },
   mounted () {
@@ -77,6 +78,9 @@ export default {
         this.chartData.labels.push(item.calonketua.nama)
         this.chartData.datasets[0].data.push(item.jumlah)
       }
+      localStorage.total = res.data.total
+      // this.$emit('update-voter', res.data.total)
+      // this.total = parseInt(res.data.total)
       this.renderChart(this.chartData, this.options)
     },
     async vote (idcalonketua) {

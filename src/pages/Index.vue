@@ -1,14 +1,13 @@
 <template>
   <q-page class="flex flex-center">
     <div class="row">
-      <div class="col-12 q-py-lg">
+      <div class="col-12 q-py-xl">
         <div class="row justify-center">
-          <img class="logo" height="200px" src="https://api.ofield.web.id/img/logo.jpg" alt="logo" srcset="">
+          <img class="logo" height="180px" src="https://api.ofield.web.id/img/logo.jpg" alt="logo" srcset="">
         </div>
-        <h1 class="text-center">OMK BMJ E-Voting</h1>
+        <h1 class="text-center"><strong>OMK BMJ</strong> <br> E-Voting</h1>
         <div class="row justify-center">
           <q-btn color="primary" label="Mulai Vote" to="calon-kandidat" />
-          <!-- <q-btn color="secondary" label="Hasil Voting" to="hasil-vote"/> -->
         </div>
       </div>
     </div>

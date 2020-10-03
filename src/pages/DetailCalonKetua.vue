@@ -6,20 +6,22 @@
               <img style="object-fit:cover" :src="'https://api.ofield.web.id/img/kandidat/'+dataKandidat.gambar">
             </q-avatar>
 
-            <h3>{{dataKandidat.nama}}</h3>
+            <h2>{{dataKandidat.nama}}</h2>
             <q-separator />
           </div>
           <div class="col-12">
               <q-card  class="my-card">
                 <q-card-section>
                   <div class="row q-py-lg q-px-md">
-                    <div class="col-4 text-center"><span class="text-h5">Visi</span></div>
-                    <div class="col-8"><p class="text-h6 q-pl-md"><i>"{{dataKandidat.visi}}"</i></p></div>
+                    <div class="col-12 col-md-4 text-center"><span class="text-h4">Visi</span></div>
+                    <q-separator class="q-my-md lt-md" />
+                    <div class="col-12 col-md-8"><p class="text-h6 q-pl-md"><i>"{{dataKandidat.visi}}"</i></p></div>
                   </div>
-                  <q-separator inset />
+                  <q-separator class="gt-sm" inset />
                   <div class="row q-py-lg q-px-md" >
-                    <div class="col-4 text-center q-pt-md"><span class="text-h5">Misi</span></div>
-                    <div class="col-8">
+                    <div class="col-12 col-md-4 text-center q-pt-md"><span class="text-h4">Misi</span></div>
+                    <q-separator class="q-my-md lt-md" />
+                    <div class="col-12 col-md-8">
                       <span class="text-h6" v-html="dataKandidat.misi"></span>
                     </div>
                   </div>
